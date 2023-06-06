@@ -70,3 +70,9 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "rolify", "~> 6.0"
+
+gem "cancancan", "~> 3.5"
+
+gem "devise"
