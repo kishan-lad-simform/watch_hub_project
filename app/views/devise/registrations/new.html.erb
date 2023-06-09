@@ -1,29 +1,120 @@
-<h2>Sign up</h2>
+<div class="container text-center">
+  <h2>Sign up</h2>
+  <div class="row">
+    <div class="col-1"> </div>
+    <div class="col-10">
+      <div class="card p-5 d-flex justify-content-center">
+        <div class="card-body">
+          <div class="row">
+            <div class="row d-flex justify-content-around">
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="field">
+                      <%= f.label :firstname %><br />
+                      <%= f.text_field :firstname, class: "form-control" %> <br>
+                    </div>
+                  </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                  <div class="col-6">
+                    <div class="field">
+                      <%= f.label :lastname %><br />
+                      <%= f.text_field :lastname, class: "form-control" %> <br>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-6">
+                    <div class="field">
+                      <%= f.label :email %><br />
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %> <br>
+                    </div>
+                  </div>
+
+                  <div class="col-6">
+                    <div class="field">
+                      <%= f.label :contact %><br />
+                      <%= f.text_field :contact, class: "form-control" %> <br>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <div class="card">
+                    <div class="card-body">
+                      <%= f.label :addresses %>: <br/>
+                      
+                      <%= f.fields_for :addresses do |address_fields| %>
+                        <div class="row">
+                          <div class="col-4">
+                            <%= address_fields.label :country %> &nbsp;
+                            <%= address_fields.text_field :country, class: "form-control" %> 
+                          </div>
+
+                          <div class="col-4">
+                            <%= address_fields.label :state %> &nbsp;
+                            <%= address_fields.text_field :state, class: "form-control" %> 
+                          </div>
+
+                          <div class="col-4">
+                            <%= address_fields.label :city %> &nbsp;
+                            <%= address_fields.text_field :city, class: "form-control" %> <br/>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-4">
+                            <%= address_fields.label :pincode %> &nbsp;
+                            <%= address_fields.text_field :pincode, class: "form-control" %> <br/>
+                          </div>
+
+                          <div class="col-4">
+                            <%= address_fields.label :street %> &nbsp;
+                            <%= address_fields.text_field :street, class: "form-control" %> <br/>
+                          </div>
+
+                          <div class="col-4">
+                            <%= address_fields.label :flat_no %> &nbsp;
+                            <%= address_fields.text_field :flat_no, class: "form-control" %> <br/>
+                          </div>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div> <br>
+
+                <div class="row">
+                  <div class="col-6">
+                    <div class="field">
+                      <%= f.label :password %>
+                      <% if @minimum_password_length %>
+                      <em>(<%= @minimum_password_length %> characters minimum)</em>
+                      <% end %><br />
+                      <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %> <br>
+                    </div>
+                  </div>
+
+                  <div class="col-6">
+                    <div class="field">
+                      <%= f.label :password_confirmation %><br />
+                      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %> <br>
+                    </div>  
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <%= f.submit "Sign up", class: "btn btn-primary" %> 
+                </div> <br>
+              <% end %>
+
+              <%= render "devise/shared/links" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

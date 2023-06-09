@@ -76,3 +76,7 @@ gem "rolify", "~> 6.0"
 gem "cancancan", "~> 3.5"
 
 gem "devise"
+
+gem "bootstrap", "~> 5.0"
+
+gem "bootstrap_form", "~> 5.2"

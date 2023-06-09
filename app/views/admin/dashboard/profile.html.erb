@@ -1,0 +1,72 @@
+<div class="container d-flex justify-content-center">
+  <div class="card p-5 text-center">
+    <%= form_with(model: @user, url: admin_profile_path) do |form| %>
+      <h2> Profile </h2>
+    
+      <%= image_tag('icons/profile.jpg', class: "img-fluid mx-auto d-block", width: 75, height: 120) %>
+
+      <div class="row">
+        <div class="col-6">
+          <%= form.label 'First Name' %> 
+          <%= form.text_field :firstname, class: "form-control", placeholder: "First Name" %>
+        </div>
+
+        <div class="col-6">
+           <%= form.label 'last Name' %> 
+          <%= form.text_field :lastname, class: "form-control", placeholder: "Last Name" %>
+        </div>
+      </div> <br>
+
+      <div class="row">
+        <div class="col-6">
+          <%= form.label 'Email' %>
+          <%= form.email_field :email, class: "form-control", disabled: true %>
+        </div>
+
+        <div class="col-6">
+          <%= form.label 'Contact' %>
+          <%= form.text_field :contact, class: "form-control", placeholder: "Contact" %>
+        </div>
+      </div><br>
+
+      <div class="row">
+        <div class="col-6">
+          <%= form.label 'Country' %>
+          <%= form.text_field :country, class: "form-control", placeholder: "Country" %>
+        </div>
+        
+        <div class="col-6">
+          <%= form.label 'State' %>
+          <%= form.text_field :state, class: "form-control", placeholder: "State" %>
+        </div>
+      </div><br>
+      
+      <div class="row">
+        <div class="col-6">
+          <%= form.label 'City' %>
+          <%= form.text_field :city, class: "form-control", placeholder: "City" %>
+        </div>
+        
+        <div class="col-6">
+          <%= form.label 'Pincode' %>
+          <%= form.text_field :pincode, class: "form-control", placeholder: "Pincode" %>
+        </div>
+      </div><br>
+
+      <div class="row">
+        <div class="col-8">
+          <%= form.label 'Street' %>
+          <textarea class="form-control"> </textarea>
+        </div>
+        
+        <div class="col-4">
+          <%= form.label 'House No.' %>
+          <%= form.text_field :flat_no, class: "form-control", placeholder: "House No." %>
+        </div>
+      </div><br>
+
+      <input type="submit" class="btn btn-primary" value="Change">
+
+    <% end %>
+  </div>
+</div>
